@@ -1,13 +1,14 @@
 ﻿using RepositoryPatternExample.Models;
+using RepositoryPatternExample.Repository;
 using RepositoryPatternExample.Repository.Generic;
 
 namespace RepositoryPatternExample.Services
 {
     public class BookService : IBookService
     {
-        private readonly IRepository<Book> _repository;
+        private readonly IBookRepository _repository;
 
-        public BookService(IRepository<Book> repository)
+        public BookService(IBookRepository repository)
         {
             _repository = repository;
         }
@@ -81,6 +82,11 @@ namespace RepositoryPatternExample.Services
 
                 throw;
             }
+        }
+    
+        public void SpecificMethod()
+        {
+            _repository.SpecificBookMethodRepository();
         }
     }
 }
